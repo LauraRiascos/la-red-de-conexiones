@@ -1,0 +1,334 @@
+/*--------------------------------------------------------------
+# Cabezote — Unidad 4 · El gran banquete del aprendizaje
+# Misma estructura de los cabezotes anteriores (red neuronal
+# animada, escena a la derecha, onda inferior), con el globo de
+# conexiones: un canvas teje hilos de luz nuevos entre los nodos
+# luminosos de la imagen.
+--------------------------------------------------------------*/
+:root {
+  --rc-ink: #000000;
+  --rc-night: #000a1c;
+  --rc-deep: #01203f;
+  --rc-cyan: #5fd0ff;
+  --rc-ice: #bfeaff;
+  --rc-ease: cubic-bezier(.22, .9, .3, 1);
+}
+
+#seccion1.rc-hero {
+  overflow: hidden !important;
+}
+
+.hero.rc-hero {
+  min-height: 62vh;
+  padding: 70px 0 100px;
+  /* Reproduce el borde izquierdo de la imagen (negro que sube a azul) */
+  background:
+    radial-gradient(ellipse 60% 55% at 70% 0%, rgba(1, 60, 105, .55), transparent 70%),
+    linear-gradient(180deg, #01142a 0%, var(--rc-night) 45%, var(--rc-ink) 100%);
+}
+
+.hero.rc-hero::before {
+  /* Velo suave a la izquierda para dar contraste al texto */
+  background: linear-gradient(90deg, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, .2) 40%, transparent 62%);
+  z-index: 2;
+}
+
+.rc-hero .container {
+  z-index: 4;
+}
+
+/* ---------- Escena: globo + hilos ---------- */
+.rc-escena-marco {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.rc-escena {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1800 / 810;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+}
+
+.rc-escena picture,
+.rc-escena__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rc-escena__img {
+  object-fit: cover;
+  transform-origin: 86% 72%;
+  animation: rc-acercar 26s ease-in-out infinite alternate;
+}
+
+/* Luz que recorre el globo de izquierda a derecha (sensación de giro) */
+.rc-escena__brillo {
+  position: absolute;
+  left: 66%;
+  top: 30%;
+  width: 34%;
+  height: 76%;
+  border-radius: 50%;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 55%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 55%, transparent 72%);
+}
+
+.rc-escena__brillo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  left: -40%;
+  background: linear-gradient(90deg, transparent, rgba(110, 200, 255, .22), transparent);
+  animation: rc-barrer 9s ease-in-out infinite;
+}
+
+.rc-escena__red {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
+/* ---------- Red neuronal tenue (canvas) ---------- */
+.rc-neural {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ---------- Texto ---------- */
+.rc-hero__bloque {
+  max-width: 640px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.rc-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .35rem .95rem .35rem .45rem;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 999px;
+  font-size: .95rem;
+  color: rgba(255, 255, 255, .92);
+  background: rgba(0, 20, 60, .35);
+  margin-bottom: 1.4rem;
+}
+
+.rc-hero-kicker .rc-dot {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--rc-cyan) 0 30%, rgba(95, 208, 255, .25) 31% 100%);
+  animation: rc-pulso 2.4s ease-in-out infinite;
+}
+
+.rc-hero h1.titulo-contenido {
+  font-size: clamp(2.5rem, 5.6vw, 4.4rem) !important;
+  line-height: 1.04;
+  letter-spacing: -.02em;
+  margin: 0 0 1rem;
+}
+
+.rc-hero h1.titulo-contenido > span {
+  display: block;
+  color: #fff;
+}
+
+.hero.rc-hero p.subtitulo-contenido {
+  max-width: 30ch;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem) !important;
+  line-height: 1.45;
+  color: var(--rc-ice);
+  margin: 0 0 1.8rem !important;
+}
+
+.hero.rc-hero p.subtitulo-contenido span {
+  color: inherit;
+}
+
+.rc-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .85rem 1.6rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #000087;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 10px 30px -10px rgba(95, 208, 255, .8);
+  transition: transform .25s var(--rc-ease), box-shadow .25s;
+}
+
+.rc-hero-cta:hover,
+.rc-hero-cta:focus-visible {
+  color: #000087;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -10px rgba(95, 208, 255, 1);
+}
+
+.rc-hero-cta:focus-visible {
+  outline: 3px solid var(--rc-cyan);
+  outline-offset: 3px;
+}
+
+.rc-hero-cta i {
+  transition: transform .25s var(--rc-ease);
+}
+
+.rc-hero-cta:hover i {
+  transform: translateY(3px);
+}
+
+/* Entrada orquestada de la portada */
+.rc-hero .rc-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: rc-subir .9s var(--rc-ease) forwards;
+}
+
+.rc-hero .rc-reveal:nth-child(2) { animation-delay: .12s; }
+.rc-hero .rc-reveal:nth-child(3) { animation-delay: .24s; }
+.rc-hero .rc-reveal:nth-child(4) { animation-delay: .36s; }
+
+/* ---------- Onda inferior ---------- */
+.rc-hero-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 5;
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+
+.rc-hero-wave path {
+  fill: var(--background-color);
+}
+
+body.dark .rc-hero-wave path {
+  fill: #373535;
+}
+
+/* Cabezote fuera de pantalla: se pausan sus animaciones en bucle (cabezote.js) */
+.rc-hero.rc-pausa .rc-escena *,
+.rc-hero.rc-pausa .rc-escena *::before,
+.rc-hero.rc-pausa .rc-dot {
+  animation-play-state: paused;
+}
+
+/* ---------- Animaciones ---------- */
+@keyframes rc-subir {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rc-acercar {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+@keyframes rc-barrer {
+  0% { left: -40%; }
+  60%, 100% { left: 110%; }
+}
+
+@keyframes rc-pulso {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+/* ---------- Pantallas medianas y pequeñas: texto arriba, escena abajo ---------- */
+@media (max-width: 1199px) {
+  .hero.rc-hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 48px 0 0;
+  }
+
+  .hero.rc-hero::before {
+    background: none;
+  }
+
+  .rc-escena-marco {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    aspect-ratio: 1.33;
+    -webkit-mask-image: radial-gradient(ellipse at 55% 55%, #000 45%, transparent 72%);
+    mask-image: radial-gradient(ellipse at 55% 55%, #000 45%, transparent 72%);
+  }
+
+  /* Recorte centrado en el globo y sus órbitas */
+  .rc-escena {
+    height: auto;
+    width: 166.7%;
+    left: -66.7%;
+    right: auto;
+    top: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero.rc-hero {
+    padding-top: 36px;
+  }
+
+  .rc-hero-kicker {
+    font-size: .85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc-escena__img,
+  .rc-escena__brillo::before,
+  .rc-hero-kicker .rc-dot {
+    animation: none;
+  }
+
+  .rc-hero .rc-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+  .rc-neural,
+  .rc-escena-marco,
+  .rc-hero-wave,
+  .rc-hero-cta {
+    display: none !important;
+  }
+}

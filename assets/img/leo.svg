@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img"><title>Leo, contento, levanta el pulgar</title><style>
+.tb-arm{transform-box:fill-box;transform-origin:18% 84%;animation:tbThumb 2.4s ease-in-out .6s infinite}
+.tb-tw{transform-box:fill-box;transform-origin:center;animation:tw 2.6s ease-in-out infinite}
+.tb-d2{animation-delay:-.9s}.tb-d3{animation-delay:-1.7s}
+.lp-head{transform-box:fill-box;transform-origin:50% 92%;animation:nod 3.2s ease-in-out infinite}
+@keyframes tbThumb{0%,100%{transform:rotate(0)}15%{transform:rotate(-7deg)}30%{transform:rotate(2deg)}45%{transform:rotate(0)}}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.6)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes nod{0%,100%{transform:rotate(0)}50%{transform:rotate(2.5deg) translateY(1px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+                <defs>
+                  <clipPath id="tbClip"><circle cx="100" cy="122" r="86"/><rect x="0" y="0" width="200" height="122"/></clipPath>
+                </defs>
+                <circle cx="100" cy="122" r="86" fill="#e8eefc"/>
+                
+                <g clip-path="url(#tbClip)">
+                  <g transform="translate(-7 -46)">
+                    <g transform="translate(0 7)">
+                    <!-- cuello -->
+                    <path d="M93 146 h20 v28 q-10 6 -20 0 Z" fill="#F7BB98"/>
+                    <!-- cabello de atrás -->
+                    <path d="M72 134 C60 108 64 82 86 72 C100 66 118 68 128 74 L118 112 L80 132 Z" fill="#5A3219"/>
+                    <!-- cara -->
+                    <path d="M70 116 C70 92 88 80 108 80 C130 80 144 96 144 118 C144 142 130 160 110 161 C88 162 70 144 70 116 Z" fill="#FFD5B8"/>
+                    <!-- sombra del lado de atrás de la cara -->
+                    <path d="M70 116 C70 100 76 90 86 85 C80 98 80 116 84 132 C88 146 98 156 110 161 C88 162 70 144 70 116 Z" fill="#F7BB98" opacity=".55"/>
+                    <!-- ojos -->
+                    <path d="M105 123 Q110.2 115 115.4 123" stroke="#3A2418" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+                    <path d="M127 123 Q131.3 115.5 135.6 123" stroke="#3A2418" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+                    <!-- gafas -->
+                    <g fill="none" stroke="#1f2a8a" stroke-width="2.6">
+                    <circle cx="110.2" cy="121" r="8.6"/><ellipse cx="131.4" cy="121" rx="7.4" ry="8.4"/>
+                    <path d="M118.8 120.5 Q121 118.5 124 120.5 M101.6 119.5 L82 116" stroke-linecap="round"/>
+                    </g>
+                    <!-- mejillas -->
+                    <ellipse cx="101" cy="134" rx="5.5" ry="4" fill="#F5A3AE" opacity=".9"/>
+                    <ellipse cx="137.5" cy="133" rx="5.5" ry="4" fill="#F5A3AE" opacity=".9"/>
+                    <!-- sonrisa -->
+                    <path d="M113.5 140.5 Q123.5 139.2 132.5 140 Q131 153.5 123 154 Q114.5 153.5 113.5 140.5 Z" fill="#F9605C"/>
+                    <!-- cabello -->
+                    <path d="M69 126 C65 100 78 72 104 69 C126 67 144 80 146 100 C146 104 145.5 107 144.5 110 C140.5 104 135.5 101 131 101.5 C129 107.5 123.5 109.5 119 105 C115.5 111 108.5 112 105 106 C101 112 94 112 90 106 C88 114 84 118 82 124 Q76 128 69 126 Z" fill="#7B4A2B"/>
+                    <path d="M100 70.5 C102 63 108 60.5 115 62 C110 64 108.5 67 110 69.5 Z" fill="#7B4A2B"/>
+                    <path d="M83 81 C76 90 75 104 80 116 L82 122 C80 108 82 94 90 84 C94 79 98 76 102 74 C94 74 88 77 83 81 Z" fill="#5A3219" opacity=".55"/>
+                    <!-- oreja -->
+                    <ellipse cx="76" cy="124" rx="9.5" ry="12.5" fill="#F7BB98"/>
+                    <path d="M74 118 q6 6 0 12" stroke="#E99C7C" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                    </g>
+                    <!-- brazo con el pulgar arriba -->
+                    <g class="tb-arm">
+                    <path d="M136 198 Q160 210 165 186" stroke="#B9C3DA" stroke-width="24" stroke-linecap="round" fill="none"/><path d="M136 198 Q160 210 165 186" stroke="#F7F9FD" stroke-width="21" stroke-linecap="round" fill="none"/>
+                    <path d="M164.5 176 L166 166" stroke="#F7BB98" stroke-width="13" stroke-linecap="round"/>
+                    <rect x="155" y="146" width="21" height="20" rx="7.5" fill="#FFD5B8"/>
+                    <rect x="157" y="132" width="8.5" height="18" rx="4.25" fill="#FFD5B8"/>
+                    <path d="M167 152 h7 M167 157 h7 M167 162 h7" stroke="#F7BB98" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- bata de laboratorio -->
+                    <path d="M64 188 C68 178 82 172 96 171 L124 171 C131 174 136 180 139 192 L146 292 Q104 303 60 292 Z" fill="#F7F9FD" stroke="#B9C3DA" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M139 192 L146 292 Q140 294 133 296 L130 200 Q133 192 139 192 Z" fill="#DDE3F0"/>
+                    <!-- camisa azul por dentro -->
+                    <path d="M97 171 L123 171 L114 231 Z" fill="#5b84f5"/>
+                    <path d="M100 171 L110 186 L120 171 Z" fill="#3037bc"/>
+                    <!-- solapas -->
+                    <path d="M95 171 L113 231 L104 238 L86 186 Z" fill="#F7F9FD" stroke="#B9C3DA" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M125 172 L115 231 L122 238 L134 186 Z" fill="#DDE3F0" stroke="#B9C3DA" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M114.5 236 L114.5 296" stroke="#B9C3DA" stroke-width="1.6"/>
+                    <circle cx="119.5" cy="252" r="2.6" fill="#B9C3DA"/><circle cx="120" cy="272" r="2.6" fill="#B9C3DA"/>
+                    <!-- bolsillo con esfero -->
+                    <path d="M128.5 264 L129 253" stroke="#3f62d6" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M124 262 h14 v11 q-7 3 -14 0 Z" fill="#DDE3F0" stroke="#B9C3DA" stroke-width="1.6" stroke-linejoin="round"/>
+
+                    <!-- brazo junto al cuerpo -->
+                    <path d="M79 189 Q67 212 69 246" stroke="#B9C3DA" stroke-width="24" stroke-linecap="round" fill="none"/><path d="M79 189 Q67 212 69 246" stroke="#F7F9FD" stroke-width="21" stroke-linecap="round" fill="none"/>
+                    <ellipse cx="70.5" cy="261" rx="9.5" ry="10.5" fill="#FFD5B8"/>
+                  </g>
+                </g>
+                <path class="tb-tw" d="M22 50 Q23.44 56.56 30 58 Q23.44 59.44 22 66 Q20.56 59.44 14 58 Q20.56 56.56 22 50Z" fill="#ffd66b"/><path class="tb-tw tb-d2" d="M184 33 Q185.26 38.74 191 40 Q185.26 41.26 184 47 Q182.74 41.26 177 40 Q182.74 38.74 184 33Z" fill="#5882f8"/><path class="tb-tw tb-d3" d="M190 144 Q191.08 148.92 196 150 Q191.08 151.08 190 156 Q188.92 151.08 184 150 Q188.92 148.92 190 144Z" fill="#ffd66b"/><path class="tb-tw tb-d2" d="M12 145 Q12.9 149.1 17 150 Q12.9 150.9 12 155 Q11.1 150.9 7 150 Q11.1 149.1 12 145Z" fill="#5882f8"/>
+              </svg>

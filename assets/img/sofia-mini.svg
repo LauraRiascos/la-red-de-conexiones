@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 34 200 214" role="img" aria-labelledby="t">
+  <title id="t">Sofía, sonriente, con el cabello recogido en dos moños</title>
+  <style>
+        .cabeza { animation: tilt 4s ease-in-out infinite; transform-origin: 110px 174px; }
+    .brillo { animation: brillo 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .b2 { animation-delay: .8s } .b3 { animation-delay: 1.6s }
+    .ojos { animation: guino 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes pulgar { 0%,100% { transform: rotate(0) } 50% { transform: rotate(-6deg) translateY(-3px) } }
+    @keyframes tilt { 0%,100% { transform: rotate(0) } 50% { transform: rotate(-3deg) } }
+    @keyframes brillo { 0%,100% { transform: scale(.5); opacity: .3 } 50% { transform: scale(1.1); opacity: 1 } }
+    @keyframes guino { 0%,90%,100% { transform: scaleY(1) } 94% { transform: scaleY(.2) } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important } }
+  </style>
+  <circle cx="110" cy="154" r="94" fill="#e6ecff"/>
+  <g class="cabeza">
+    <path d="M60 112 C58 70 84 46 110 46 C136 46 162 70 160 112 L164 198 Q163 208 152 208 L68 208 Q57 208 56 198 Z" fill="#5E3720"/>
+    <circle cx="70" cy="58" r="19" fill="#7B4A2B"/><circle cx="150" cy="58" r="19" fill="#7B4A2B"/>
+    <path d="M60 76 L84 52 M160 76 L136 52" stroke="#F86A63" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(0 -14)">
+    <path d="M48 284 C48 216 76 192 110 192 C144 192 172 216 172 284 Z" fill="#4a74e8"/>
+    <path d="M48 284 C48 222 66 200 86 194 C74 206 66 228 66 284 Z" fill="#3457c9"/>
+    <path d="M100 160 h20 v30 l-10 14 l-10 -14 Z" fill="#F7BB98"/>
+    <path d="M95 192 L110 206 L125 192 L125 199 L110 216 L95 199 Z" fill="#2a47b0"/>
+    <path d="M93 190 L110 207 L100 218 L86 199 Z" fill="#fff"/>
+    <path d="M127 190 L110 207 L120 218 L134 199 Z" fill="#eef2ff"/>
+    <circle cx="110" cy="230" r="2.8" fill="#fff"/><circle cx="110" cy="248" r="2.8" fill="#fff"/>
+  </g>
+  <g class="cabeza">
+    <circle cx="68" cy="122" r="10" fill="#F7BB98"/><circle cx="152" cy="122" r="10" fill="#FFD5B8"/>
+    <path d="M68 112 C68 84 86 70 110 70 C134 70 152 84 152 112 C152 144 134 164 110 164 C86 164 68 144 68 112 Z" fill="#FFD5B8"/>
+    <path d="M68 112 C68 96 74 84 84 78 C78 92 76 108 78 124 C80 142 92 156 110 164 C86 164 68 144 68 112 Z" fill="#F7BB98" opacity=".6"/>
+    <path d="M64 104 C62 76 84 52 110 52 C136 52 158 76 156 104 L156 102 L141 102 Q138 102 137 99 L132 86 L127 99 Q126 102 123 102 L114 102 Q111 102 110 99 L106 86 L101 99 Q100 102 97 102 L88 102 Q85 102 84 99 L80 87 L76 99 Q75 102 72 102 L64 102 Z" fill="#7B4A2B"/>
+    <path d="M64 104 C62 86 74 64 92 56 C82 68 76 86 76 102 L64 102 Z" fill="#5E3720" opacity=".45"/>
+    <ellipse cx="84" cy="131" rx="8.5" ry="5" fill="#F5A3AE"/><ellipse cx="136" cy="131" rx="8.5" ry="5" fill="#F5A3AE"/>
+    <path class="ojos" d="M91 121 Q96 113 101 121 M119 121 Q124 113 129 121" stroke="#7a3f2a" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+    <path d="M97 136 Q110 134.5 123 136 Q121.5 150 110 150.5 Q98.5 150 97 136 Z" fill="#F9605C"/>
+  </g>
+  
+</svg>

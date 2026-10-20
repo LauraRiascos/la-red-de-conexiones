@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-18 4 240 260" role="img" aria-labelledby="t">
+  <title id="t">Sofía, confundida, se rasca la cabeza frente a un dilema</title>
+  <style>
+    .bob { animation: bob 3.2s ease-in-out infinite; transform-origin: 180px 62px; }
+    .bob2 { animation: bob2 3.2s ease-in-out infinite; transform-origin: 204px 100px; }
+    .rasca { animation: rasca .5s ease-in-out infinite alternate; transform-origin: 60px 222px; }
+    .lineas { animation: lineas 1s ease-in-out infinite; }
+    .cabeza { animation: tilt 5s ease-in-out infinite; transform-origin: 110px 174px; }
+    .ojo { animation: blink 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .gota { animation: drip 3s ease-in infinite; }
+    @keyframes bob { 0%,100% { transform: translateY(0) rotate(0) } 50% { transform: translateY(-7px) rotate(8deg) } }
+    @keyframes bob2 { 0%,100% { transform: scale(.85); opacity: .45 } 50% { transform: scale(1.05); opacity: 1 } }
+    @keyframes rasca { from { transform: rotate(-3deg) } to { transform: rotate(3deg) } }
+    @keyframes lineas { 0%,100% { opacity: .2 } 50% { opacity: 1 } }
+    @keyframes tilt { 0%,100% { transform: rotate(0) } 50% { transform: rotate(4deg) } }
+    @keyframes blink { 0%,40%,46%,84%,100% { transform: scaleY(1) } 43%,87%,93% { transform: scaleY(.1) } 90% { transform: scaleY(1) } }
+    @keyframes drip { 0%,40% { transform: translateY(0); opacity: 0 } 55% { opacity: 1 } 100% { transform: translateY(14px); opacity: 0 } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important } }
+  </style>
+  <circle cx="110" cy="154" r="94" fill="#e6ecff"/>
+  <g class="cabeza">
+    <path d="M60 112 C58 70 84 46 110 46 C136 46 162 70 160 112 L164 198 Q163 208 152 208 L68 208 Q57 208 56 198 Z" fill="#5E3720"/>
+    <circle cx="70" cy="58" r="19" fill="#7B4A2B"/><circle cx="150" cy="58" r="19" fill="#7B4A2B"/>
+    <path d="M60 76 L84 52 M160 76 L136 52" stroke="#F86A63" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <!-- Brazo que sube a rascarse -->
+  <g class="rasca">
+    <path d="M42 176 C40 146 46 122 58 104" stroke="#F7BB98" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M62 222 C50 210 44 196 42 178" stroke="#3457c9" stroke-width="20" stroke-linecap="round" fill="none"/>
+    <path d="M33 181 Q42 185 51.5 179" stroke="#2a47b0" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </g>
+  <g transform="translate(0 -14)">
+    <path d="M48 284 C48 216 76 192 110 192 C144 192 172 216 172 284 Z" fill="#4a74e8"/>
+    <path d="M48 284 C48 222 66 200 86 194 C74 206 66 228 66 284 Z" fill="#3457c9"/>
+    <path d="M100 160 h20 v30 l-10 14 l-10 -14 Z" fill="#F7BB98"/>
+    <path d="M95 192 L110 206 L125 192 L125 199 L110 216 L95 199 Z" fill="#2a47b0"/>
+    <path d="M93 190 L110 207 L100 218 L86 199 Z" fill="#fff"/>
+    <path d="M127 190 L110 207 L120 218 L134 199 Z" fill="#eef2ff"/>
+    <circle cx="110" cy="230" r="2.8" fill="#fff"/><circle cx="110" cy="248" r="2.8" fill="#fff"/>
+  </g>
+  <g class="cabeza">
+    <circle cx="68" cy="122" r="10" fill="#F7BB98"/><circle cx="152" cy="122" r="10" fill="#FFD5B8"/>
+    <path d="M68 112 C68 84 86 70 110 70 C134 70 152 84 152 112 C152 144 134 164 110 164 C86 164 68 144 68 112 Z" fill="#FFD5B8"/>
+    <path d="M68 112 C68 96 74 84 84 78 C78 92 76 108 78 124 C80 142 92 156 110 164 C86 164 68 144 68 112 Z" fill="#F7BB98" opacity=".6"/>
+    <path d="M64 104 C62 76 84 52 110 52 C136 52 158 76 156 104 L156 102 L141 102 Q138 102 137 99 L132 86 L127 99 Q126 102 123 102 L114 102 Q111 102 110 99 L106 86 L101 99 Q100 102 97 102 L88 102 Q85 102 84 99 L80 87 L76 99 Q75 102 72 102 L64 102 Z" fill="#7B4A2B"/>
+    <path d="M64 104 C62 86 74 64 92 56 C82 68 76 86 76 102 L64 102 Z" fill="#5E3720" opacity=".45"/>
+    <ellipse cx="84" cy="131" rx="8.5" ry="5" fill="#F5A3AE"/><ellipse cx="136" cy="131" rx="8.5" ry="5" fill="#F5A3AE"/>
+    <path d="M89 108 Q95 103 102 106.5" stroke="#5E3720" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M118 107 L131 109.5" stroke="#5E3720" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <rect class="ojo" x="92.5" y="111" width="7" height="13" rx="3.5" fill="#B5674C"/>
+    <rect class="ojo" x="120.5" y="112" width="6.4" height="11.5" rx="3.2" fill="#B5674C"/>
+    <path d="M98 146 q6 -5 12 0 t12 0" stroke="#C2493F" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path class="gota" d="M147 101 q6 9 0 13 q-6 -4 0 -13 Z" fill="#8fd3ff"/>
+  </g>
+  <!-- Mano rascando la cabeza (el brazo va por detrás del cuerpo) -->
+  <g class="rasca">
+    <circle cx="61" cy="98" r="9.5" fill="#FFD5B8"/>
+    <path d="M56 92 q4.5 -4 9 -1" stroke="#F7BB98" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </g>
+  <g class="lineas" stroke="#7d8bd8" stroke-width="2.4" stroke-linecap="round" fill="none">
+    <path d="M38 84 l-8 -6"/><path d="M44 72 l-3 -9"/><path d="M34 96 l-10 -1"/>
+  </g>
+  <g class="bob">
+    <circle cx="180" cy="62" r="19" fill="#f5b81c"/>
+    <text x="180" y="71" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="24" fill="#000087">?</text>
+  </g>
+  <g class="bob2">
+    <circle cx="204" cy="100" r="10" fill="#ffd25e"/>
+    <text x="204" y="105" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="13" fill="#000087">?</text>
+  </g>
+</svg>

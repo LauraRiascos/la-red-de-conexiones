@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>La red de conexiones | Aprender a aprender</title>
+  <meta name="description" content="Recurso interactivo de la Unidad 4 del curso Aprender a aprender: teje conexiones entre los conceptos de las cuatro unidades.">
+  <meta name="keywords" content="aprender a aprender, integración, transferencia, mapa de conceptos, red de conexiones">
+
+  <!-- Favicons -->
+  <link href="assets/img/icon_escudo.ico" rel="icon">
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- boostrap css -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Cabezote de la Unidad 4 (globo con conexiones animadas) -->
+  <link href="assets/css/cabezote.css" rel="stylesheet">
+
+  <!-- Estilos propios del recurso "La red de conexiones" -->
+  <link href="assets/css/red-conexiones.css" rel="stylesheet">
+
+  <style>
+    @media print {
+      .hero, .nombre-curso, .social-links, .navmenu {
+        display: none !important;
+      }
+    }
+  </style>
+
+</head>
+
+<body class="starter-page-page">
+
+  <header id="header" class="header sticky-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center nombre-curso">
+          <i class="bi bi-box-arrow-right d-flex align-items-center"><a>Aprender a aprender</a></i>
+        </div>
+        <div class="social-links d-md-flex align-items-center">
+          <button class="switch botones-ayudas" id="switch" aria-label="Cambiar a modo oscuro"><i class="bi bi-moon-stars-fill"></i></button>
+          <button class="botones-ayudas" onclick="agrandar()" aria-label="Aumentar tamaño de letra">A+</button>
+          <button class="botones-ayudas" onclick="achicar()" aria-label="Reducir tamaño de letra">A-</button>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="./assets/img/logo_upb_virtual_md.svg" alt="UPB Virtual" width="100px" height="auto">
+        </a>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <!-- Las opciones aparecen a medida que el estudiante avanza (red-conexiones.js) -->
+            <li data-nav="1"><a href="#" class="rc-nav" data-paso="1">Introducción</a></li>
+            <li data-nav="2" hidden><a href="#" class="rc-nav" data-paso="2">Teje la red</a></li>
+            <li data-nav="3" hidden><a href="#" class="rc-nav" data-paso="3">Tu red</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- =========================================================
+         CABEZOTE
+         Fondo: globo con red de conexiones (cabezote-red.webp)
+         + canvas que teje conexiones nuevas entre los nodos
+         luminosos de la imagen + red neuronal tenue.
+         ========================================================= -->
+    <section id="seccion1" class="hero section light-background rc-hero">
+      <canvas class="rc-neural" id="rcNeural" aria-hidden="true"></canvas>
+
+      <div class="rc-escena-marco" aria-hidden="true">
+        <div class="rc-escena">
+          <picture>
+            <source srcset="assets/img/cabezote-red.webp" type="image/webp">
+            <img class="rc-escena__img" src="assets/img/cabezote-red.jpg" alt="" width="1800" height="810">
+          </picture>
+          <span class="rc-escena__brillo"></span>
+          <canvas class="rc-escena__red" id="rcHeroNet"></canvas>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="rc-hero__bloque">
+          <span class="rc-hero-kicker rc-reveal"><span class="rc-dot" aria-hidden="true"></span>Unidad 4 ⏐ El gran banquete del aprendizaje</span>
+          <h1 class="titulo-contenido rc-reveal"><span>La red</span><span>de conexiones</span></h1>
+          <p class="subtitulo-contenido rc-reveal"><span>Teje relaciones entre las ideas de las cuatro unidades</span></p>
+          <div class="rc-reveal">
+            <button type="button" class="rc-hero-cta" id="rcHeroCta">Empezar el recorrido <i class="bi bi-arrow-down" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <svg class="rc-hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,40 C240,10 480,60 720,36 C960,12 1200,52 1440,28 L1440,60 L0,60 Z"></path>
+      </svg>
+    </section><!-- /Cabezote -->
+
+    <!-- ============ Recurso lineal: 3 pasos (4 pantallas del guion) ============ -->
+    <section id="seccion2">
+      <div class="container rc-wrap">
+
+        <ol class="rc-steps" id="rcSteps" aria-label="Progreso del recurso">
+          <li data-step="1"><button type="button"><span>1</span>Introducción</button></li>
+          <li data-step="2"><button type="button"><span>2</span>Teje la red</button></li>
+          <li data-step="3"><button type="button" disabled><span>3</span>Tu red</button></li>
+        </ol>
+
+        <!-- ===================================================== -->
+        <!-- Pantalla 1 · Introducción                             -->
+        <!-- ===================================================== -->
+        <div class="rc-screen is-active" data-screen="1">
+
+          <div class="rc-intro">
+            <div class="rc-intro__texto">
+              <h2>Ahora toca ver todo junto</h2>
+              <p>Ya probaste, te atragantaste, resolviste crucigramas. Ahora toca ver todo junto: cómo el modo enfocado se conecta con el error, cómo el acceso consciente se conecta con la recuperación espaciada. Aprender de verdad es tejer estas ideas entre sí, no guardarlas en cajones separados.</p>
+              <p>Frente a ti tienes 8 ideas, dos de cada unidad que ya recorriste. Tu tarea es unirlas: elige dos que vengan de unidades distintas, traza la línea entre ellas, y cuéntanos en una frase por qué están conectadas. Necesitas tejer al menos 4 hilos para ganar tu insignia: <span class="rc-insignia-linea"><img src="assets/img/la-red.png" alt="" aria-hidden="true"><b>La Red</b></span>.</p>
+            </div>
+            <div class="rc-intro__art">
+              <img src="assets/img/tejido.svg" alt="Dos agujas tejiendo una bufanda">
+            </div>
+          </div>
+
+          <h2 class="rc-sub">Las cuatro zonas de tu lienzo</h2>
+          <ul class="rc-zonas">
+            <li class="rc-zona" style="--z: var(--rc-tobias)">
+              <img src="assets/img/tobias.svg" alt="Tobías, un niño de cabello rubio y camisa azul, sonríe mientras muestra una carta">
+              <span class="rc-zona__unidad">Unidad 1</span>
+              <strong>Tobías</strong>
+              <span class="rc-zona__tema">Del devorador al catador</span>
+            </li>
+            <li class="rc-zona" style="--z: var(--rc-leo)">
+              <img src="assets/img/leo.svg" alt="Leo, con gafas y bata de laboratorio, levanta el pulgar">
+              <span class="rc-zona__unidad">Unidad 2</span>
+              <strong>Leo</strong>
+              <span class="rc-zona__tema">Sembrando y cosechando memoria</span>
+            </li>
+            <li class="rc-zona" style="--z: var(--rc-sofia)">
+              <img src="assets/img/sofia.svg" alt="Sofía, sonriente, con el cabello recogido en dos moños">
+              <span class="rc-zona__unidad">Unidad 3</span>
+              <strong>Sofía</strong>
+              <span class="rc-zona__tema">Domando el monstruo de la procrastinación</span>
+            </li>
+            <li class="rc-zona" style="--z: var(--rc-banquete)">
+              <img src="assets/img/banquete.svg" alt="Un plato servido con una campana dorada que se levanta">
+              <span class="rc-zona__unidad">Unidad 4</span>
+              <strong>El Banquete</strong>
+              <span class="rc-zona__tema">El gran banquete del aprendizaje</span>
+            </li>
+          </ul>
+
+          <div class="rc-reglas">
+            <h2 class="rc-sub">Cómo se teje un hilo</h2>
+            <ol class="rc-reglas__lista">
+              <li><i class="bi bi-hand-index-thumb" aria-hidden="true"></i><span>Haz clic en una idea para seleccionarla.</span></li>
+              <li><i class="bi bi-bezier2" aria-hidden="true"></i><span>Haz clic en una idea de <b>otra unidad</b>. Dos ideas de la misma unidad no se pueden unir.</span></li>
+              <li><i class="bi bi-pencil-fill" aria-hidden="true"></i><span>Escribe en una o dos frases por qué están conectadas y guarda el hilo.</span></li>
+            </ol>
+            <p class="rc-reglas__nota"><i class="bi bi-info-circle-fill" aria-hidden="true"></i><span>No hay conexiones correctas o incorrectas: lo que cuenta es que argumentes la relación. Una misma idea puede usarse en varios hilos.</span></p>
+          </div>
+
+          <div class="rc-acciones">
+            <button type="button" class="rc-btn" data-goto="2"><i class="bi bi-bezier2" aria-hidden="true"></i> Empezar a tejer la red</button>
+          </div>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- Pantallas 2 y 3 · Lienzo de conexión + confirmación   -->
+        <!-- ===================================================== -->
+        <!-- Esta pantalla se abre a pantalla completa (modo inmersivo) -->
+        <div class="rc-screen rc-inmersivo" data-screen="2" role="region" aria-label="Teje tu red">
+          <div class="rc-barra">
+            <button type="button" class="rc-barra__salir" data-goto="1" aria-label="Volver a la introducción" title="Volver a la introducción"><i class="bi bi-arrow-left" aria-hidden="true"></i></button>
+            <div class="rc-barra__titulo">
+              <h2>Teje tu red</h2>
+              <p>Elige dos ideas de unidades distintas y explica cómo se conectan.</p>
+            </div>
+            <div class="rc-contador" id="rcContador" aria-live="polite">
+              <span class="rc-contador__hilos" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              <span class="rc-contador__texto"><b id="rcContadorN">0</b> de 4 hilos</span>
+            </div>
+            <button type="button" class="rc-barra__btn" id="rcAbrirHilos" aria-controls="rcCajon" aria-expanded="false"><i class="bi bi-list-ul" aria-hidden="true"></i><span>Hilos tejidos</span> <b id="rcHilosN">0</b></button>
+            <button type="button" class="rc-barra__btn rc-barra__btn--icono" id="rcPantalla" aria-label="Ver en pantalla completa" title="Pantalla completa" hidden><i class="bi bi-arrows-fullscreen" aria-hidden="true"></i></button>
+            <button type="button" class="rc-btn rc-barra__ver" id="rcVerRed" data-goto="3" disabled><i class="bi bi-lock-fill" aria-hidden="true"></i> Ver mi red</button>
+          </div>
+
+          <!-- Lienzo: los 8 nodos se generan desde red-conexiones.js (banco de conceptos) -->
+          <div class="rc-lienzo" id="rcLienzo">
+            <svg class="rc-hilos" id="rcHilos" aria-hidden="true"></svg>
+            <div class="rc-nodos" id="rcNodos" role="group" aria-label="Ideas del lienzo"></div>
+
+            <!-- Centro del lienzo: indicaciones, justificación (Pantalla 2) y confirmación (Pantalla 3) -->
+            <div class="rc-centro" id="rcCentro">
+
+              <div class="rc-centro__panel is-active" data-panel="guia">
+                <div class="rc-centro__icono" aria-hidden="true"><i class="bi bi-bezier2"></i></div>
+                <p id="rcGuia">Elige una primera idea.</p>
+              </div>
+
+              <form class="rc-centro__panel rc-composer" data-panel="justificar" id="rcForm" novalidate>
+                <div class="rc-composer__head">
+                  <p id="rcPregunta">Elegiste <b>…</b> y <b>…</b>. Cuéntanos, en una o dos frases, cómo se conectan.</p>
+                </div>
+                <!-- Editor con formato: negrilla, cursiva, subrayado, resaltado, color, enlace, listas, alineación -->
+                <div class="rc-rte-box">
+                  <div class="rc-rte-area" id="rcJustificacion" contenteditable="true" role="textbox" aria-multiline="true"
+                    aria-labelledby="rcPregunta" data-placeholder="Estas ideas se conectan porque…"></div>
+                </div>
+                <div class="rc-composer__pie">
+                  <span class="rc-composer__count" id="rcCount">0/400</span>
+                  <span class="rc-composer__error" id="rcFormError" role="alert"></span>
+                </div>
+                <div class="rc-composer__acciones">
+                  <button type="button" class="rc-btn rc-btn--ghost" id="rcCancelar">Cancelar</button>
+                  <button type="submit" class="rc-btn"><i class="bi bi-check2-circle" aria-hidden="true"></i> Guardar conexión</button>
+                </div>
+              </form>
+
+              <div class="rc-centro__panel rc-ok" data-panel="confirmar" role="status">
+                <svg class="rc-ok__check" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="rc-ok__circulo" cx="50" cy="50" r="44"/>
+                  <path class="rc-ok__chulo" d="M30 52 L44 66 L71 36"/>
+                </svg>
+                <p class="rc-ok__titulo">Conexión guardada.</p>
+                <p id="rcOkTexto">Llevas 1 de 4 hilos tejidos.</p>
+              </div>
+
+              <div class="rc-centro__panel rc-ok rc-ok--meta" data-panel="meta" role="status">
+                <svg class="rc-ok__check" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="rc-ok__circulo" cx="50" cy="50" r="44"/>
+                  <path class="rc-ok__chulo" d="M30 52 L44 66 L71 36"/>
+                </svg>
+                <p class="rc-ok__titulo">¡Excelente! Completaste las 4 conexiones.</p>
+                <p class="rc-ok__sub">Tu red ya está tejida. Si quieres, puedes seguir conectando ideas.</p>
+                <div class="rc-composer__acciones">
+                  <button type="button" class="rc-btn rc-btn--ghost" id="rcSeguir">Seguir tejiendo</button>
+                  <button type="button" class="rc-btn" data-goto="3">Ver mi red</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Aviso cuando se intenta unir dos ideas de la misma unidad -->
+            <div class="rc-aviso" id="rcAviso" role="alert" hidden>
+              <img src="assets/img/sofia-confundida.svg" alt="" aria-hidden="true">
+              <p>Busca una idea de otra unidad para conectar con esta.</p>
+            </div>
+          </div>
+
+          <!-- Cajón lateral con los hilos tejidos -->
+          <aside class="rc-cajon" id="rcCajon" aria-label="Hilos tejidos" aria-hidden="true">
+            <div class="rc-cajon__head">
+              <h3>Hilos tejidos</h3>
+              <button type="button" class="rc-barra__btn rc-barra__btn--icono" id="rcCerrarHilos" aria-label="Cerrar la lista de hilos"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+            </div>
+            <p class="rc-tejidos__vacio" id="rcVacio">Todavía no has tejido ningún hilo. Tu primera conexión aparecerá aquí.</p>
+            <ol class="rc-tejidos__lista" id="rcLista"></ol>
+          </aside>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- Pantalla 4 · Cierre                                   -->
+        <!-- ===================================================== -->
+        <div class="rc-screen" data-screen="3">
+          <div class="rc-cierre">
+            <div class="rc-cierre__msg">
+              <h2>Mira lo que tejiste</h2>
+              <p>Mira lo que tejiste: ya no son 8 ideas sueltas, son una red. Así aprende de verdad el cerebro: no guardando cajones separados, sino construyendo caminos entre ellos.</p>
+            </div>
+            <div class="rc-cierre__arte">
+              <img src="assets/img/tejido.svg" alt="Dos agujas tejiendo una bufanda">
+            </div>
+          </div>
+
+          <div class="rc-retrato">
+            <div class="rc-retrato__head">
+              <h3>El retrato de tu red</h3>
+              <span id="rcResumen"></span>
+            </div>
+            <div class="rc-lienzo rc-lienzo--final" id="rcLienzoFinal">
+              <svg class="rc-hilos" aria-hidden="true"></svg>
+              <div class="rc-nodos"></div>
+              <div class="rc-centro rc-centro--final">
+                <div class="rc-centro__panel is-active">
+                  <img class="rc-equipo" src="assets/img/equipo.svg" alt="" aria-hidden="true">
+                  <p>Tobías, Leo y Sofía celebran tu red.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rc-tejidos">
+            <h3>Tus hilos y sus razones</h3>
+            <ol class="rc-tejidos__lista" id="rcListaFinal"></ol>
+          </div>
+
+          <div class="rc-acciones">
+            <button type="button" class="rc-btn" id="rcDescargar"><i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i> Descargar mi red</button>
+            <button type="button" class="rc-btn rc-btn--ghost" data-goto="2"><i class="bi bi-bezier2" aria-hidden="true"></i> Seguir tejiendo</button>
+            <button type="button" class="rc-btn rc-btn--ghost" id="rcReiniciar"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> Reiniciar el recurso</button>
+          </div>
+          <p class="rc-nota-descarga" id="rcNotaDescarga" role="status"></p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container copyright mt-4">
+      <p><strong class="sitename">Curso:</strong> Aprender a aprender.</p>
+      <div class="credits">
+        <p><b>Experto temático:</b> Mateo Muñetones Rico.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!--cambiar el tamaño de la letra-->
+  <script src="assets/js/tamano-letra.js"></script>
+
+  <!--Cambiar al modo oscuro-->
+  <script src="assets/js/modo-oscuro.js"></script>
+
+  <!-- Cabezote animado -->
+  <script src="assets/js/cabezote.js"></script>
+
+  <!-- Generación del PDF con la plantilla "Aprender a aprender" -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="assets/js/plantilla-pdf.js" defer></script>
+
+  <!-- Editor de texto de las justificaciones -->
+  <script src="assets/js/editor-conexiones.js"></script>
+
+  <!-- Lógica del recurso "La red de conexiones" -->
+  <script src="assets/js/red-conexiones.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 540" role="img"><title>Dos agujas tejiendo una bufanda: cada puntada se suma a la red</title>
+<style>
+  .k { stroke: #000; stroke-width: 10; stroke-linejoin: round; stroke-linecap: round; }
+  /* Aguja diagonal: entra y sale de cada punto */
+  .aguja-d { animation: pinchar 1.1s ease-in-out infinite; transform-box: view-box; transform-origin: 300px 140px; }
+  /* Aguja horizontal: se mece en sentido contrario */
+  .aguja-h { animation: mecer 1.1s ease-in-out infinite; }
+  /* Los puntos del tejido se levantan uno tras otro */
+  .punto { animation: punto 2.2s ease-in-out infinite; }
+  .p2 { animation-delay: .275s } .p3 { animation-delay: .55s } .p4 { animation-delay: .825s }
+  /* El patrón avanza como si saliera tela nueva */
+  .patron { animation: avanzar 2.2s linear infinite; }
+  .tela { animation: crecer 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 0; }
+  /* Ovillo e hilo */
+  .ovillo { animation: rodar 2.2s linear infinite; transform-box: fill-box; transform-origin: center; }
+  .hebra { stroke-dasharray: 14 10; animation: hebra .7s linear infinite; }
+  .fleco { animation: fleco 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 0; }
+  .f2 { animation-delay: -.4s } .f3 { animation-delay: -.8s }
+  @keyframes pinchar { 0%, 100% { transform: rotate(0) translate(0, 0); } 45% { transform: rotate(-9deg) translate(-10px, 6px); } 60% { transform: rotate(-9deg) translate(-10px, 6px); } }
+  @keyframes mecer { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
+  @keyframes punto { 0%, 60%, 100% { transform: translateY(0); } 25% { transform: translateY(-9px); } }
+  @keyframes avanzar { to { transform: translateX(-120px); } }
+  @keyframes crecer { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.02); } }
+  @keyframes rodar { to { transform: rotate(-360deg); } }
+  @keyframes hebra { to { stroke-dashoffset: -24; } }
+  @keyframes fleco { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(4deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+  <clipPath id="tjTela"><rect x="93" y="193" width="232" height="242"/></clipPath>
+</defs>
+
+<!-- Hebra hacia el ovillo -->
+<path class="hebra" d="M325 215 C400 230 380 330 440 360 C470 375 480 420 470 440" fill="none" stroke="#a070ce" stroke-width="5" stroke-linecap="round"/>
+<g class="ovillo">
+  <circle class="k" cx="472" cy="470" r="44" fill="#c09fde"/>
+  <path d="M440 448 C462 470 480 486 506 488 M436 474 C458 486 478 500 496 504 M452 432 C474 452 494 462 514 462 M470 428 C470 458 456 486 440 500" fill="none" stroke="#a070ce" stroke-width="6" stroke-linecap="round"/>
+</g>
+
+<!-- Aguja horizontal con los puntos montados -->
+<g class="aguja-h">
+  <path class="k" d="M60 128 H400 L462 140 L400 152 H60 Z" fill="#e5ecf5"/>
+  <path d="M70 140 H395" stroke="#cad8eb" stroke-width="6"/>
+  <circle class="k" cx="38" cy="140" r="26" fill="#c09fde"/>
+  <path d="M26 132 a14 14 0 0 0 10 22" fill="none" stroke="#a070ce" stroke-width="8" stroke-linecap="round"/>
+  <g class="punto"><rect class="k" x="108" y="112" width="28" height="86" rx="14" fill="#efc17a"/></g>
+  <g class="punto p2"><rect class="k" x="168" y="112" width="28" height="86" rx="14" fill="#efc17a"/></g>
+  <g class="punto p3"><rect class="k" x="228" y="112" width="28" height="86" rx="14" fill="#efc17a"/></g>
+  <g class="punto p4"><rect class="k" x="288" y="112" width="28" height="86" rx="14" fill="#efc17a"/></g>
+</g>
+
+<!-- Tela -->
+<g class="tela">
+  <rect x="88" y="188" width="242" height="252" fill="#e8ab4c"/>
+  <rect x="88" y="188" width="26" height="252" fill="#df941e"/>
+  <g clip-path="url(#tjTela)">
+    <g class="patron">
+      <path d="M40 295 C70 255 100 255 130 295 C160 335 190 335 220 295 C250 255 280 255 310 295 C340 335 370 335 400 295 C430 255 460 255 490 295 C520 335 550 335 580 295 L580 300 C550 340 520 340 490 300 C460 260 430 260 400 300 C370 340 340 340 310 300 C280 260 250 260 220 300 C190 340 160 340 130 300 C100 260 70 260 40 300 Z" fill="#000"/>
+      <path d="M40 295 C70 255 100 255 130 295 C160 335 190 335 220 295 C250 255 280 255 310 295 C340 335 370 335 400 295 C430 255 460 255 490 295 C520 335 550 335 580 295 C550 255 520 255 490 295 C460 335 430 335 400 295 C370 255 340 255 310 295 C280 335 250 335 220 295 C190 255 160 255 130 295 C100 335 70 335 40 295 Z" fill="#faef93" stroke="#000" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M58 300 C80 320 100 324 118 300 M178 290 C196 268 214 270 232 290 M298 300 C320 320 340 324 358 300 M418 290 C436 268 454 270 472 290" fill="none" stroke="#f6e23d" stroke-width="12" stroke-linecap="round"/>
+    </g>
+  </g>
+  <rect x="112" y="210" width="14" height="14" fill="#fff"/><rect x="142" y="210" width="14" height="14" fill="#fff"/>
+  <rect class="k" x="88" y="188" width="242" height="252" fill="none"/>
+  <!-- Flecos -->
+  <g stroke="#000" stroke-width="10" stroke-linecap="round">
+    <path class="fleco" d="M100 445 V480"/><path class="fleco f2" d="M130 445 V480"/><path class="fleco f3" d="M160 445 V480"/>
+    <path class="fleco" d="M190 445 V480"/><path class="fleco f2" d="M220 445 V480"/><path class="fleco f3" d="M250 445 V480"/>
+    <path class="fleco" d="M280 445 V480"/><path class="fleco f2" d="M310 445 V480"/>
+  </g>
+</g>
+
+<!-- Aguja diagonal -->
+<g class="aguja-d">
+  <path class="k" d="M178 28 L238 58 L478 298 L462 314 L222 74 Z" fill="#e5ecf5"/>
+  <path d="M232 70 L465 303" stroke="#cad8eb" stroke-width="6"/>
+  <circle class="k" cx="476" cy="318" r="26" fill="#c09fde"/>
+  <path d="M464 310 a14 14 0 0 0 10 22" fill="none" stroke="#a070ce" stroke-width="8" stroke-linecap="round"/>
+</g>
+</svg>
